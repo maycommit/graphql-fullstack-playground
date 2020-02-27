@@ -1,0 +1,12 @@
+version: '3'
+services:
+
+  postgres:
+    image: postgres:9.6-alpine
+    ports:
+    - 5432:5432
+    environment:
+    - POSTGRES_DB=mayfacebook
+    - POSTGRES_USER=mayfacebook
+    - POSTGRES_PASSWORD=mayfacebook
+    - MAX_CONNECTIONS=300

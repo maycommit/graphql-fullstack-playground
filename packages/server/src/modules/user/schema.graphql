@@ -1,0 +1,44 @@
+type User {
+  id: String
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  active: Boolean
+  createdAt: String
+}
+
+type UserEdges {
+  edges: [User]
+  last: Boolean
+  page: Int
+}
+
+input UserInput {
+  firstName: String
+  lastName: String
+  email: String
+  password: String
+  active: Boolean
+  createdAt: String
+}
+
+type UserDeletedRows {
+  number: Int
+}
+
+type Query {
+  users(page: Int = 0, size: Int): UserEdges
+  user(id: String): User
+}
+
+type Mutation {
+  saveUser(input: UserInput): User
+  changeUser(id: String, input: UserInput): User
+  removeUser(id: String): UserDeletedRows
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
